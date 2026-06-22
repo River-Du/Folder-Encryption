@@ -557,9 +557,9 @@ set "PASSWORD_B64="
 echo.
 
 if "%SELECTED_MODE%"=="ENCRYPT" (
-    set "_PROMPT=请设置压缩密码，输入时不会显示"
+    set "_PROMPT=请设置压缩密码"
 ) else (
-    set "_PROMPT=请输入解压密码，输入时不会显示"
+    set "_PROMPT=请输入解压密码"
 )
 
 for /f "usebackq delims=" %%P in (`powershell -NoProfile -ExecutionPolicy Bypass -Command "$p=Read-Host $env:_PROMPT -AsSecureString; $b=[Runtime.InteropServices.Marshal]::SecureStringToBSTR($p); try{$s=[Runtime.InteropServices.Marshal]::PtrToStringBSTR($b); if($s.Length -eq 0){exit 2}; [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($s))} finally{if($b -ne [IntPtr]::Zero){[Runtime.InteropServices.Marshal]::ZeroFreeBSTR($b)}}"`) do set "PASSWORD_B64=%%P"
