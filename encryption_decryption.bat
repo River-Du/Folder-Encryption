@@ -8,7 +8,7 @@ chcp 936 >nul
 :: 使用 7-Zip 命令行程序对指定文件夹进行 .7z 加密压缩或解密解压。
 ::
 :: Author: River Du
-:: Data: 2024-06-22
+:: Data: 2026-06-22
 :: Repository: https://github.com/River-Du/folder-encryption
 ::
 :: 功能：

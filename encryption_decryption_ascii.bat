@@ -8,7 +8,7 @@ rem ============================================================
 rem Encrypt or decrypt configured folders with 7-Zip.
 rem
 rem Author: River Du
-rem Date: 2024-06-22
+rem Date: 2026-06-22
 rem Repository: https://github.com/River-Du/folder-encryption
 rem
 rem Mode rules:

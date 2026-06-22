@@ -4,7 +4,7 @@
 
 ```text
 Author: River Du
-Date: 2024-06-22
+Date: 2026-06-22
 Repository: https://github.com/River-Du/folder-encryption
 ```
 
@@ -47,6 +47,44 @@ folder-encryption/
 
 仓库已包含 `7za.exe`，通常不需要额外安装 7-Zip。
 
+## 文件放置说明
+
+推荐将 `.bat` 脚本、`7za.exe` 和需要处理的文件夹放在同一个目录中，例如：
+
+```text
+folder-encryption/
+├─ 7za.exe
+├─ encryption_decryption.bat
+├─ private_1/
+└─ private_2/
+```
+
+这样在脚本中只需要填写文件夹名称：
+
+```bat
+set TARGETS="private_1" "private_2"
+```
+
+如果 `.bat` 脚本和目标文件夹不在同一个目录中，需要在配置中填写目标文件夹的绝对路径，例如：
+
+```bat
+set TARGETS="D:\My Files\private_1"
+```
+
+通常情况下，`.bat` 脚本也应和 `7za.exe` 放在同一个目录中。脚本会优先查找同级目录下的 `7za.exe`。
+
+如果不放在同一个目录中，则需要满足以下条件之一：
+
+* 已将 7-Zip 安装到系统默认安装路径；
+* 已在脚本中手动指定系统中的 7-Zip 可执行文件路径；
+* 系统环境变量 `PATH` 中可以找到 `7z.exe` 或 `7za.exe`。
+
+手动指定 7-Zip 路径的示例：
+
+```bat
+set "SEVENZIP_EXE=C:\Program Files\7-Zip\7z.exe"
+```
+
 ## 使用方法
 
 ### 1. 编辑脚本
@@ -79,6 +117,12 @@ set TARGETS="private_1" "private_2" "private_3" "private_4"
 
 ```bat
 set TARGETS="my_private_folder"
+```
+
+如果目标文件夹不在脚本同级目录中，请填写绝对路径：
+
+```bat
+set TARGETS="D:\My Files\my_private_folder"
 ```
 
 ### 3. 保存并运行
